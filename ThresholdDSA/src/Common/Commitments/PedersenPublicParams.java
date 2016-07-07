@@ -1,4 +1,4 @@
-package PedersenCommitments;
+package Common.Commitments;
 
 import java.io.Serializable;
 

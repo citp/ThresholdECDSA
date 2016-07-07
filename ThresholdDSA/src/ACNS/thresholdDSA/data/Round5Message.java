@@ -1,4 +1,4 @@
-package thresholdDSA.data;
+package ACNS.thresholdDSA.data;
 
 import paillierp.PartialDecryption;
 

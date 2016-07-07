@@ -1,4 +1,4 @@
-package PedersenCommitments;
+package Common.Commitments;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -34,7 +34,7 @@ public class Util {
 	 */
 	public static PedersenPublicParams<BigInteger> generatePedersenParams(
 			String filename, int qBitLength, String verifiableStartString) {
-		byte[] verifiableSeed = thresholdDSA.Util
+		byte[] verifiableSeed = ACNS.thresholdDSA.Util
 				.sha256Hash(verifiableStartString.getBytes());
 		SecureRandom rand = new SecureRandom(verifiableSeed);
 		BigInteger q = BigInteger.probablePrime(qBitLength, rand);
@@ -42,8 +42,8 @@ public class Util {
 			q = BigInteger.probablePrime(qBitLength, rand);
 		}
 		BigInteger p = q.add(q).add(BigInteger.ONE);
-		BigInteger g = thresholdDSA.Util.randomFromZn(p, rand).pow(2);
-		BigInteger h = thresholdDSA.Util.randomFromZn(p, rand).pow(2);
+		BigInteger g = ACNS.thresholdDSA.Util.randomFromZn(p, rand).pow(2);
+		BigInteger h = ACNS.thresholdDSA.Util.randomFromZn(p, rand).pow(2);
 
 		PedersenPublicParams<BigInteger> params = new PedersenPublicParams<BigInteger>(
 				q, p, g, h);
@@ -67,7 +67,7 @@ public class Util {
 	
 	public static PedersenPublicParams<BigInteger> generatePedersenParamsFromInternet(
 			String filename, String verifiableStartString) {
-		byte[] verifiableSeed = thresholdDSA.Util
+		byte[] verifiableSeed = ACNS.thresholdDSA.Util
 				.sha256Hash(verifiableStartString.getBytes());
 		SecureRandom rand = new SecureRandom(verifiableSeed);
 		
@@ -122,8 +122,8 @@ public class Util {
 		BigInteger p = new BigInteger(1,bytes);
 		BigInteger q = p.subtract(BigInteger.ONE).divide(BigInteger.valueOf(2));
 		
-		BigInteger g = thresholdDSA.Util.randomFromZn(p, rand).pow(2);
-		BigInteger h = thresholdDSA.Util.randomFromZn(p, rand).pow(2);
+		BigInteger g = ACNS.thresholdDSA.Util.randomFromZn(p, rand).pow(2);
+		BigInteger h = ACNS.thresholdDSA.Util.randomFromZn(p, rand).pow(2);
 
 		PedersenPublicParams<BigInteger> params = new PedersenPublicParams<BigInteger>(
 				q, p, g, h);

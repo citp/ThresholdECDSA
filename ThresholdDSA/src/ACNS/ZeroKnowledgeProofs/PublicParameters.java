@@ -1,4 +1,4 @@
-package ZeroKnowledgeProofs;
+package ACNS.ZeroKnowledgeProofs;
 
 import java.io.Serializable;
 import java.math.BigInteger;

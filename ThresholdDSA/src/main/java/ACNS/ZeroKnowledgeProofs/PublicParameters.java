@@ -17,8 +17,7 @@ public class PublicParameters implements Serializable {
 	public final BigInteger nTilde;
 	public final PaillierKey paillierPubKey;
 
-	public PublicParameters(ECDomainParameters CURVE, BigInteger nTilde,
-			int kPrime, BigInteger h1, BigInteger h2,
+	public PublicParameters(ECDomainParameters CURVE, BigInteger nTilde, BigInteger h1, BigInteger h2,
 			PaillierKey paillierPubKey) {
 		gRaw = CURVE.getG().getEncoded();
 		this.nTilde = nTilde;

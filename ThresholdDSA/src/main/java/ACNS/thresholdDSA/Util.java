@@ -188,7 +188,7 @@ public class Util {
 		BigInteger x = randomFromZn(pPrimeqPrime, rand);
 		BigInteger h1 = h2.modPow(x, nHat);
 
-		return new PublicParameters(CURVE, nHat, kPrime, h1, h2, paillierPubKey);
+		return new PublicParameters(CURVE, nHat, h1, h2, paillierPubKey);
 
 	}
 
